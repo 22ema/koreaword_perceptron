@@ -1,14 +1,23 @@
-function result=input_x()
-matrix=zeros(14,64);
+function result=input_x(i,j,l)
+matrix=zeros(i,j);
 input_mat=input_func();
-
-for z=1:14
-    for x=1:8
-        for y=1+8*(x-1):8+8*(x-1)
-            if y<=8
-            matrix(z,y)=input_mat(x,y+(z*8)-8);
-            elseif y>8
-                matrix(z,y)=input_mat(x,y-8*(x-1)+(z*8)-8);
+test_mat=output_func();
+for z=1:i
+    for x=1:l
+        for y=1+l*(x-1):l+l*(x-1)
+            if y<=l
+                if i==14
+            matrix(z,y)=input_mat(x,y+(z*l)-l);
+                
+                else
+                    matrix(z,y)=test_mat(x,y+(z*l)-l);
+                end
+            elseif y>l
+                if i==14
+                matrix(z,y)=input_mat(x,y-l*(x-1)+(z*l)-l);
+                else
+                    matrix(z,y)=test_mat(x,y-l*(x-1)+(z*l)-l);
+                end
             end
             
         
